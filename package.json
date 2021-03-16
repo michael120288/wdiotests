@@ -1,0 +1,28 @@
+{
+  "name": "wdiotests",
+  "version": "1.0.0",
+  "description": "Webdriver IO tests example",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx wdio run ./wdio.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wdio/cli": "^7.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/register": "^7.13.8",
+    "@wdio/devtools-service": "^7.1.1",
+    "@wdio/local-runner": "^7.1.1",
+    "@wdio/mocha-framework": "^7.1.1",
+    "@wdio/spec-reporter": "^7.1.1",
+    "@wdio/sync": "^7.1.1",
+    "chromedriver": "^89.0.0",
+    "wdio-chromedriver-service": "^7.0.0"
+  }
+}
