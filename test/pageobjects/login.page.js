@@ -6,6 +6,11 @@ class LoginPage extends Page {
     get inputUsername () { return $('#normal_login_email'); }
     get inputPassword () { return $('#normal_login_password'); }
     get buttonSubmit () { return $('.login-form-button'); }
+    get errorToast(){return $('.ant-notification-notice-message')}
+
+    open () {
+        return super.open('/user/login');
+    }
 
     setLogin(email){
         this.inputUsername.setValue(email);
@@ -18,9 +23,12 @@ class LoginPage extends Page {
     clickSubmitButton(){
         this.buttonSubmit.click();
     }
+    submitButtonIsDisabled(){
+        expect(this.buttonSubmit).toBeDisabled();
+    }
 
-    open () {
-        return super.open('/user/login');
+    errorToastAppeared(){
+        expect(this.errorToast).toBeDisplayed();
     }
 }
 
