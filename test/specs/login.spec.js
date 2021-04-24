@@ -1,18 +1,19 @@
 import LoginPage from  '../pageobjects/login.page';
-import ProfilePage from '../pageobjects/profile.page';
+import ProfilePage from '../pageobjects/portal/profile.portal.page';
 
 describe('Auth', () => {
-    beforeEach(()=>{
+    beforeEach(() => {
         LoginPage.open();
-    })
+        LoginPage.clickLogin();
+    });
 
     afterEach(()=>{
         browser.execute('window.localStorage.clear()')
     })
 
     it('user log in with valid data', () => {
-        LoginPage.setLogin('yecomel462@grokleft.com');
-        LoginPage.setPassword('123123123');
+        LoginPage.setLogin('jocefip492@tlhao86.com');
+        LoginPage.setPassword('345678');
         LoginPage.clickSubmitButton();
         ProfilePage.isOpen();
 
@@ -32,24 +33,30 @@ describe('Auth', () => {
 
     it('"*Required" alert appear  ', () => {
         LoginPage.setLogin('yecomel462@grokleft.com');
-        LoginPage.clearLoging()
+        LoginPage.clearLogin()
         LoginPage.errorMessageAppeared();
 
     });
 
     it('"*Email" alert appear  ', () => {
         LoginPage.setLogin('yecomel462@grokleft.com');
-        LoginPage.clearLoging()
+        LoginPage.clearLogin()
         LoginPage.errorEmailMessage();
 
     });
 
-    it('"*Email" alert appear  ', () => {
+    it('"*Password" alert appear  ', () => {
         LoginPage.setPassword('123123');
         LoginPage.clearPass();
         LoginPage.errorMessageAppeared();
 
     });
+
+    it("Login input is required", ()=> {
+        LoginPage.setLogin('yecomel462@grokleft.com')
+        LoginPage.emptyLoginInput()
+        LoginPage.loginRequiredError()
+    })
 
 });
 

@@ -1,10 +1,10 @@
-import Page from './page';
+import PortalPage from "./portal.page";
 
-class ProfilePage extends Page {
+class ProfilePage extends PortalPage {
     get iconUser() {return $('.ant-avatar-square')}
 
     isOpen(){
-        expect(browser).toHaveUrlContaining('/profile/')
+        expect(browser).toHaveUrlContaining('/user/login')
         expect(this.iconUser).toBeDisplayed()
     }
 }

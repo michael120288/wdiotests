@@ -8,14 +8,19 @@ class LoginPage extends Page {
     get buttonSubmit () { return $('.login-form-button'); }
     get errorToast(){return $('.ant-notification-notice-message')}
     get errorMessage(){return $('.ant-form-item-explain-error');}
-
+    get loginValidationError(){return $('//div[contains(@class, "ant-form-item-with-help")][.//input[@id="normal_login_email"]]//div[@role="alert"]')}
+    get loginButton () {return $('//a[@data-qa="login"]'); }
 
     open () {
-        return super.open('/user/login');
+        return super.open('/');
     }
 
     setLogin(email){
         this.inputUsername.setValue(email);
+    }
+
+    clickLogin() {
+        this.loginButton.click();
     }
 
     setPassword(password){
@@ -41,14 +46,21 @@ class LoginPage extends Page {
         expect(this.errorMessage === '\'email\' is not a valid email')
     }
 
+    emptyLoginInput(){
+        this.clearInput(this.inputUsername);
+    }
 
-
-    clearLoging(){
+    clearLogin(){
         this.inputUsername.clearValue();
     }
 
     clearPass(){
         this.inputPassword.clearValue();
+    }
+
+    loginRequiredError(){
+        expect(this.loginValidationError).toBeDisplayed();
+        expect(this.loginValidationError.getText()).toEqual("Required");
     }
 }
 
