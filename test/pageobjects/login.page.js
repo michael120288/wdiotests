@@ -12,7 +12,7 @@ class LoginPage extends Page {
     get loginButton () {return $('//a[@data-qa="login"]'); }
 
     open () {
-        return super.open('/');
+        return super.open('/user/login');
     }
 
     setLogin(email){

@@ -13,10 +13,13 @@ module.exports = {
     connectionRetryTimeout: 30000,
     connectionRetryCount: 1,
 
-    baseUrl: 'https://stage.localcoding.us',
+    baseUrl: 'https://localcoding.us',
 
     framework: 'mocha',
-    reporters: ['spec'],
+    reporters: ['spec', ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+    }]],
     mochaOpts: {
         require: ['@babel/register'],
         ui: 'bdd',

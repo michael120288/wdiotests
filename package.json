@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "npx wdio run chrome.conf.js",
-    "test:firefox": "npx wdio run firefox.conf.js"
+    "test:firefox": "npx wdio run firefox.conf.js",
+    "report:serve": "npx allure serve allure-results",
+    "report:generate": "npx allure generate allure-results -o allure-report --clean",
+    "report:open": "npx allure open allure-report"
+
   },
   "keywords": [],
   "author": "",
@@ -18,11 +22,13 @@
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
     "@babel/register": "^7.13.8",
+    "@wdio/allure-reporter": "^7.4.2",
     "@wdio/devtools-service": "^7.1.1",
     "@wdio/local-runner": "^7.1.1",
     "@wdio/mocha-framework": "^7.1.1",
     "@wdio/spec-reporter": "^7.1.1",
     "@wdio/sync": "^7.1.1",
+    "allure-commandline": "^2.13.8",
     "chromedriver": "^89.0.0",
     "geckodriver": "^1.22.2",
     "wdio-chromedriver-service": "^7.0.0",
